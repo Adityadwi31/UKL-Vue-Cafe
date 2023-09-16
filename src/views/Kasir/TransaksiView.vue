@@ -22,7 +22,6 @@
                   <li><a href="/kasir">home</a></li>
                   <li><a href="/keranjang">on going</a></li>
                   <li><a href="/transaksi">transaksi</a></li>
-                  <li><a href="#">histori</a></li>
                   <a href="/menu"
                     ><button class="btn btn-outline-light mb-4 mt-4">
                       pesan
@@ -171,20 +170,12 @@
           <form @submit.prevent="checkoutnow">
             <div class="modal-body">
               <label for="user">Kasir:</label>
-              <select
+              <input type='text'
                 required
                 class="form-control"
-                v-model="checkout.id_user"
-                id="user"
+                v-model="nama"
+                id="user" readonly
               >
-                <option
-                  v-for="nama in kasir"
-                  :key="nama.id_user"
-                  :value="nama.id_user"
-                >
-                  {{ nama.nama }}
-                </option>
-              </select>
 
               <label for="meja">Meja</label>
               <select
@@ -240,7 +231,10 @@ export default {
       cart: {},
       kasir: {},
       meja: {},
-      checkout: {},
+      checkout: {
+        id_user: localStorage.getItem('id_user')
+      },
+      nama: localStorage.getItem('nama')
     };
   },
   mounted() {

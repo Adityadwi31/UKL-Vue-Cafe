@@ -3,7 +3,7 @@
         <h1>404</h1>
         <h2>Not Found</h2>
         <p>Halaman tidak ditemukan</p>
-        <button class="btn btn-outline-danger" @click="balik">Kemali</button>
+        <button class="btn btn-outline-danger" @click="balik">Kembali</button>
     </div>
 </template>
 

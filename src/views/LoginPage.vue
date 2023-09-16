@@ -98,6 +98,8 @@ export default {
         .then((response) => {
           localStorage.setItem("token", response.data.token);
           localStorage.setItem("role", response.data.role);
+          localStorage.setItem("id_user", response.data.id_user);
+          localStorage.setItem("nama", response.data.nama);
 
           if (response.data.role === "admin") {
             location.href = "/admin";
