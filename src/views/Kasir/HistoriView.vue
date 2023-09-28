@@ -23,7 +23,8 @@
               <tr class="bg-light text-dark">
                 <td>No</td>
                 <td>Menu</td>
-                <td>Jumlah</td>
+                <td>Qty</td>
+                <td>Harga</td>
                 <td>Total</td>
               </tr>
             </thead>
@@ -32,8 +33,16 @@
                 <td>{{ nomor + 1 }}</td>
                 <td>{{ data.nama_menu }}</td>
                 <td>{{ data.total_pesanan }}</td>
+                <td>{{ data.harga }}</td>
                 <td>{{ data.total_harga }}</td>
               </tr>
+              <tr>
+                <td colspan="5" align="right">{{total}}</td>
+              </tr>
+              <tr>
+                <td>{{ nama_kasir }}</td>
+              </tr>
+
               <span
                 style="text-decoration: underline; color: blue; cursor: pointer"
                 @click="print()"
@@ -88,10 +97,13 @@ export default {
   data() {
     return {
       data_transaksi: {},
+      total : '',
+      nama_kasir: localStorage.getItem('nama'),
     };
   },
   mounted() {
     this.getdata(this.$route.params.id);
+    this.gettotal(this.$route.params.id);
   },
   methods: {
     getdata(id) {
@@ -100,6 +112,14 @@ export default {
         .then(({ data }) => {
           console.log(data);
           this.data_transaksi = data;
+        });
+    },
+    gettotal(id){
+      axios
+        .get("http://localhost:8000/api/totalharga/" + id)
+        .then(({ data }) => {
+          console.log(data);
+          this.total = data;
         });
     },
     print() {
