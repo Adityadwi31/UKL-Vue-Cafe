@@ -6,15 +6,6 @@
         <small
           >Jl. Danau Ranau, Sawojajar, Kec. Kedungkandang, Kota Malang, Jawa
           Timur 65139 <br />
-          IG: @WikusamaCafe <br />
-          jadwal Cafe : <br>
-          Senin 06.00–16.00 <br />
-          Selasa 06.00–16.00 <br />
-          Rabu 06.00–16.00 <br />
-          Kamis 06.00–16.00 <br />
-          Jumat 06.00–16.00 <br />
-          Sabtu Tutup <br />
-          Minggu Tutup <br />
         </small>
 
         <div class="container">
@@ -40,7 +31,7 @@
                 <td colspan="5" align="right">{{total}}</td>
               </tr>
               <tr>
-                <td>{{ nama_kasir }}</td>
+                <td>{{ kasir }}</td>
               </tr>
 
               <span
@@ -82,12 +73,6 @@
   height: 100vh;
 }
 
-.note {
-  margin-left: 4%;
-  margin-right: 35%;
-  margin-top: 65%;
-  border: 1px solid black;
-}
 </style>
 
 <script>
@@ -98,7 +83,7 @@ export default {
     return {
       data_transaksi: {},
       total : '',
-      nama_kasir: localStorage.getItem('nama'),
+      kasir: localStorage.getItem('nama'),
     };
   },
   mounted() {

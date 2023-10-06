@@ -6,6 +6,7 @@ import keranjang from '../views/Kasir/OnGoing.vue'
 import Menu from '../views/Kasir/AddMenu.vue'
 import Histori from '../views/Kasir/HistoriView.vue'
 import Transaksi from '../views/Kasir/TransaksiView.vue'
+import Print from '../views/Kasir/NotaVue.vue'
 
 // admin
 import admin from '../views/Admin/AdminHome.vue'
@@ -62,6 +63,15 @@ const routes = [
     path: '/print/:id',
     name: 'histori',
     component: Histori,
+    meta: {
+      requiresAuth: true,
+      allowedRoles: ['kasir']
+    }
+  },
+  {
+    path: '/Nota/:id',
+    name: 'Nota',
+    component: Print,
     meta: {
       requiresAuth: true,
       allowedRoles: ['kasir']

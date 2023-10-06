@@ -19,12 +19,12 @@
                 <ul
                   class="d-flex flex-row align-items-center justify-content-start"
                 >
-                  <li><a href="/kasir">home</a></li>
-                  <!-- <li><a href="/menu">menu</a></li> -->
-                  <li><a href="/keranjang">on going</a></li>
-                  <li><a href="/transaksi">transaksi</a></li>
-                  <li><a href="#"  @click="logout">Logout</a></li>
-                  <!-- <li><a href="#">contact</a></li> -->
+                  <li><router-link to="/keranjang">home</router-link></li>
+                  <li><router-link to="/kasir">on going</router-link></li>
+                  <li><router-link to="/transaksi">transaksi</router-link></li>
+                  <li><a href="#" @click="logout">Logout</a></li>
+
+
                 </ul>
               </nav>
               <div class="reservations_phone ml-auto">

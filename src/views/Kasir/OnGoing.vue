@@ -283,7 +283,7 @@ export default {
               });
               setTimeout(() => {
                 location.href =
-                  "/print/" + this.detail_ongoing.id_keranjang;
+                  "/nota/" + this.detail_ongoing.id_keranjang;
               }, 1200);
             })
             .catch((error) => {
