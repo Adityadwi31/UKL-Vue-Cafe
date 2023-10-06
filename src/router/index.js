@@ -1,23 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-// kasir
 import Kasir from '../views/Kasir/KasirHome.vue'
 import keranjang from '../views/Kasir/OnGoing.vue'
 import Menu from '../views/Kasir/AddMenu.vue'
-import Histori from '../views/Kasir/HistoriView.vue'
+import Nota from '../views/Kasir/NotaVue.vue'
 import Transaksi from '../views/Kasir/TransaksiView.vue'
-import Print from '../views/Kasir/NotaVue.vue'
-
-// admin
 import admin from '../views/Admin/AdminHome.vue'
 import addmeja from '../views/Admin/ManageMeja.vue'
 import addmenu from '../views/Admin/ManageMenu.vue'
 import adduser from '../views/Admin/ManageUser.vue'
-// manager
 import manager from '../views/Manager/ManagerHome.vue'
 import all from '../views/Manager/AllTransaksi.vue'
 import profit from '../views/Manager/ProfitPage.vue'
-
 import login from '../views/LoginPage.vue'
 import NotFound from '../views/NotFound.vue'
 import SalahAkses from '../views/SalahAkses.vue'
@@ -31,7 +25,6 @@ const routes = [
     name: 'login',
     component: login
   },
-  // kasir
   {
     path: '/kasir',
     name: 'kasirhome',
@@ -60,18 +53,9 @@ const routes = [
     }
   },
   {
-    path: '/print/:id',
-    name: 'histori',
-    component: Histori,
-    meta: {
-      requiresAuth: true,
-      allowedRoles: ['kasir']
-    }
-  },
-  {
-    path: '/Nota/:id',
-    name: 'Nota',
-    component: Print,
+    path: '/nota/:id',
+    name: 'nota',
+    component: Nota,
     meta: {
       requiresAuth: true,
       allowedRoles: ['kasir']
@@ -86,7 +70,6 @@ const routes = [
       allowedRoles: ['kasir']
     }
   },
-  // admin
   {
     path: '/admin',
     name: 'admin',
@@ -123,7 +106,6 @@ const routes = [
       allowedRoles: ['admin']
     }
   },
-  // manager
   {
     path: '/manager',
     name: 'manager home',

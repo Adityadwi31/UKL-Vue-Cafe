@@ -96,7 +96,7 @@ export default {
       axios
         .post("http://localhost:8000/api/login", data)
         .then((response) => {
-          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("token", response.data.jwt);
           localStorage.setItem("role", response.data.role);
           localStorage.setItem("id_user", response.data.id_user);
           localStorage.setItem("nama", response.data.nama);
