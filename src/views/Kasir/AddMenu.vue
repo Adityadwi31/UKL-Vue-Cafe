@@ -105,16 +105,16 @@
               <div class="cart-menu">
                 <div class="container">
                   <div class="row g-4 mb-5" v-for="menu in filter_menu" :key="menu.id_menu">
-                    <div class="col-12"> <!-- Menggunakan col-12 agar kontennya penuh -->
+                    <div class="col-12">
                       <div class="d-flex align-items-center">
                         <img class="flex-shrink-0 img-fluid rounded"
-                          :src="'http://localhost/api_cafe/public/images/' + menu.foto" alt="" style="width: 80px" />
+                          :src="'http://localhost/api_cafe/public/images/' + menu.foto" alt="" style="width: 150px" />
                         <div class="w-100 d-flex flex-column text-start ps-4">
                           <h5 class="d-flex justify-content-between border-bottom pb-2">
                             <span style="color: white" class="ai-font-bold">{{ menu.nama_menu }}
-                              <button class="btn btn-outline-primary text" data-bs-toggle="modal" @click="getdetail(menu)"
+                              <button class="btn btn-outline-success text" data-bs-toggle="modal" @click="getdetail(menu)"
                                 data-bs-target="#addmenu">
-                                <i class="bi bi-cart-plus-fill">pesan</i>
+                                <i class="bi bi-cart-plus-fill" style="color: white;">pesan</i>
                               </button></span>
 
                             <span class="text-light">Rp.{{ menu.harga }}</span>

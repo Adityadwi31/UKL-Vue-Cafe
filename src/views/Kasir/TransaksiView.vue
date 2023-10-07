@@ -104,8 +104,8 @@
                 </table>
                 <div>
                   <router-link to="/menu"> <button class="btn btn-outline-light mt-3">
-                    Add Menu
-                  </button></router-link>
+                      Add Menu
+                    </button></router-link>
                 </div>
                 <div> <button class="btn btn-outline-light mt-3" data-bs-toggle="modal" data-bs-target="#checkout">
                     Check Out
@@ -196,37 +196,82 @@ export default {
         this.cart = data;
       });
     },
+
     checkoutnow() {
-      swal({
-        title: "Are you sure?",
-        icon: "warning",
-        dangerMode: true,
-        buttons: true,
-      }).then((checkout) => {
-        if (checkout) {
-          axios
-            .put("http://localhost:8000/api/checkout", this.checkout)
-            .then((response) => {
-              console.log(response);
-              swal({
-                icon: "success",
-                title: "Success",
+      if (this.cart.length === 0) {
+        swal({
+          title: "Anda belum memesan!",
+          icon: "warning",
+          button: true,
+          timer: 3000,
+        }).then(() => {
+          location.reload();
+        });
+      } else {
+        swal({
+          title: "Are you sure?",
+          icon: "warning",
+          dangerMode: true,
+          buttons: true,
+        }).then((checkout) => {
+          if (checkout) {
+            axios
+              .put("http://localhost:8000/api/checkout", this.checkout)
+              .then((response) => {
+                console.log(response);
+                swal({
+                  icon: "success",
+                  title: "Success",
+                });
+                setTimeout(() => {
+                  location.reload();
+                }, 1200);
+              })
+              .catch((error) => {
+                console.log(error);
+                swal({
+                  title: "Failed Check Out",
+                  icon: "error",
+                  button: true,
+                });
               });
-              setTimeout(() => {
-                location.reload();
-              }, 1200);
-            })
-            .catch((error) => {
-              console.log(error);
-              swal({
-                title: "Failed Check Out",
-                icon: "error",
-                button: true,
-              });
-            });
-        }
-      });
+          }
+        });
+      }
     },
+
+    // checkoutnow() {
+    //   swal({
+    //     title: "Are you sure?",
+    //     icon: "warning",
+    //     dangerMode: true,
+    //     buttons: true,
+    //   }).then((checkout) => {
+    //     if (checkout) {
+    //       axios
+    //         .put("http://localhost:8000/api/checkout", this.checkout)
+    //         .then((response) => {
+    //           console.log(response);
+    //           swal({
+    //             icon: "success",
+    //             title: "Success",
+    //           });
+    //           setTimeout(() => {
+    //             location.reload();
+    //           }, 1200);
+    //         })
+    //         .catch((error) => {
+    //           console.log(error);
+    //           swal({
+    //             title: "Failed Check Out",
+    //             icon: "error",
+    //             button: true,
+    //           });
+    //         });
+    //     }
+    //   });
+    // },
+
     hapus(menu) {
       axios.delete(
         "http://localhost:8000/api/deletetransaksi/" + menu.id_transaksi
@@ -237,6 +282,7 @@ export default {
         }, 1200);
       });
     },
+
     logout() {
       swal({
         icon: "warning",
@@ -259,6 +305,7 @@ export default {
         }
       });
     },
+
   },
 };
 </script>
