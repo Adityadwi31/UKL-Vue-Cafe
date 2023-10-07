@@ -6,25 +6,20 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <div
-              class="header_content d-flex flex-row align-items-center justify-content-start"
-            >
+            <div class="header_content d-flex flex-row align-items-center justify-content-start">
               <div class="logo">
                 <a href="#">
-                  <div>The Venue</div>
-                  <div>restaurant</div>
+                  <div>Wikusama</div>
+                  <div>Cafe</div>
                 </a>
               </div>
               <nav class="main_nav">
-                <ul
-                  class="d-flex flex-row align-items-center justify-content-start"
-                >
-                  <li><a href="#"></a></li>
-                  <li><a href="/admin">home</a></li>
-                  <li><a href="/addmenu">menu</a></li>
-                  <li><a href="/addmeja">meja</a></li>
-                  <li><a href="/adduser">user</a></li>
-                  <li><a href="#"  @click="logout">Logout</a></li>
+                <ul class="d-flex flex-row align-items-center justify-content-start">
+                  <li> <router-link to="/admin">home</router-link></li>
+                  <li> <router-link to="/CURDmeja">meja</router-link></li>
+                  <li> <router-link to="/CURDmenu">menu</router-link></li>
+                  <li> <router-link to="/CURDuser">user</router-link></li>
+                  <li><a href="#" @click="logout">Logout</a></li>
                 </ul>
               </nav>
               <div class="reservations_phone ml-auto">
@@ -38,28 +33,15 @@
 
     <!-- Hamburger -->
 
-    <div
-      class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start"
-    >
+    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
       <div class="hamburger">
-        <div
-          class="menu_toggle d-flex flex-row align-items-center justify-content-start"
-        >
+        <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
           <span>menu</span>
           <div class="hamburger_container">
             <div class="menu_hamburger">
-              <div
-                class="line_1 hamburger_lines"
-                style="transform: matrix(1, 0, 0, 1, 0, 0)"
-              ></div>
-              <div
-                class="line_2 hamburger_lines"
-                style="visibility: inherit; opacity: 1"
-              ></div>
-              <div
-                class="line_3 hamburger_lines"
-                style="transform: matrix(1, 0, 0, 1, 0, 0)"
-              ></div>
+              <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0)"></div>
+              <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1"></div>
+              <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0)"></div>
             </div>
           </div>
         </div>
@@ -69,9 +51,7 @@
     <!-- Menu -->
 
     <div class="menu trans_800">
-      <div
-        class="menu_content d-flex flex-column align-items-center justify-content-center text-center"
-      >
+      <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
         <ul>
           <li><a href="/admin">home</a></li>
           <li><a href="/addmenu">menu</a></li>
@@ -87,12 +67,8 @@
     <!-- Home -->
 
     <div class="home">
-      <div
-        class="parallax_background parallax-window"
-        data-parallax="scroll"
-        data-image-src="images/home.jpg"
-        data-speed="0.8"
-      ></div>
+      <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/menu.jpg"
+        data-speed="0.8"></div>
       <div class="home_container">
         <div class="container">
           <div class="row">
@@ -144,18 +120,12 @@
             <div class="row">
               <div class="col-xl-4 col-md-6 intro_col">
                 <div class="intro_image">
-                  <img
-                    src="images/intro_1.jpg"
-                    alt="https://unsplash.com/@quanle2819"
-                  />
+                  <img src="images/intro_1.jpg" alt="https://unsplash.com/@quanle2819" />
                 </div>
               </div>
               <div class="col-xl-4 col-md-6 intro_col">
                 <div class="intro_image">
-                  <img
-                    src="images/intro_2.jpg"
-                    alt="https://unsplash.com/@fabmag"
-                  />
+                  <img src="images/intro_2.jpg" alt="https://unsplash.com/@fabmag" />
                 </div>
               </div>
             </div>
@@ -166,20 +136,13 @@
     <!-- Video -->
 
     <div class="video_section">
-      <div
-        class="background_image"
-        style="background-image: url(images/video.jpg)"
-      ></div>
-      <div
-        class="video_section_content d-flex flex-column align-items-center justify-content-center text-center"
-      >
+      <div class="background_image" style="background-image: url(images/video.jpg)"></div>
+      <div class="video_section_content d-flex flex-column align-items-center justify-content-center text-center">
         <div class="video_section_title">Food for the soul</div>
         <div class="video_section_icon">
-          <a
-            class="vimeo video_button"
-            href="https://player.vimeo.com/video/99340873?autoplay=1&loop=1&title=0&autopause=0"
-            ><i class="fa fa-play" aria-hidden="true"></i
-          ></a>
+          <a class="vimeo video_button"
+            href="https://player.vimeo.com/video/99340873?autoplay=1&loop=1&title=0&autopause=0"><i class="fa fa-play"
+              aria-hidden="true"></i></a>
         </div>
       </div>
     </div>
@@ -270,6 +233,8 @@ export default {
         if (response) {
           localStorage.removeItem("role");
           localStorage.removeItem("token");
+          localStorage.removeItem("nama");
+          localStorage.removeItem("id_user");
           swal({
             icon: "success",
             button: false,

@@ -80,7 +80,7 @@ const routes = [
     }
   },
   {
-    path: '/addmeja',
+    path: '/CURDmeja',
     name: 'admin',
     component: addmeja,
     meta: {
@@ -89,7 +89,7 @@ const routes = [
     }
   },
   {
-    path: '/addmenu',
+    path: '/CURDmenu',
     name: 'admin',
     component: addmenu,
     meta: {
@@ -98,7 +98,7 @@ const routes = [
     }
   },
   {
-    path: '/adduser',
+    path: '/CURDuser',
     name: 'admin',
     component: adduser,
     meta: {

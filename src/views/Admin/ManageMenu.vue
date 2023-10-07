@@ -6,9 +6,7 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <div
-              class="header_content d-flex flex-row align-items-center justify-content-start"
-            >
+            <div class="header_content d-flex flex-row align-items-center justify-content-start">
               <div class="logo">
                 <a href="#">
                   <div>Wikusama</div>
@@ -16,24 +14,12 @@
                 </a>
               </div>
               <nav class="main_nav">
-                <ul
-                  class="d-flex flex-row align-items-center justify-content-start"
-                >
-                  <li><a href="#"></a></li>
-                  <li><a href="/admin">home</a></li>
-                  <li><a href="/addmenu">menu</a></li>
-                  <li><a href="/addmeja">meja</a></li>
-                  <li><a href="/adduser">user</a></li>
-
-                  <button
-                    type="button"
-                    class="btn btn-outline-light"
-                    style="font-weight: bold"
-                    data-bs-toggle="modal"
-                    data-bs-target="#addmenu"
-                  >
-                    add
-                  </button>
+                <ul class="d-flex flex-row align-items-center justify-content-start">
+                  <li> <router-link to="/admin">home</router-link></li>
+                  <li> <router-link to="/CURDmeja">meja</router-link></li>
+                  <li> <router-link to="/CURDmenu">menu</router-link></li>
+                  <li> <router-link to="/CURDuser">user</router-link></li>
+                  <li><a href="#" @click="logout">Logout</a></li>
                 </ul>
               </nav>
               <div class="reservations_phone ml-auto">
@@ -47,28 +33,15 @@
 
     <!-- Hamburger -->
 
-    <div
-      class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start"
-    >
+    <div class="hamburger_bar trans_400 d-flex flex-row align-items-center justify-content-start">
       <div class="hamburger">
-        <div
-          class="menu_toggle d-flex flex-row align-items-center justify-content-start"
-        >
+        <div class="menu_toggle d-flex flex-row align-items-center justify-content-start">
           <span>menu</span>
           <div class="hamburger_container">
             <div class="menu_hamburger">
-              <div
-                class="line_1 hamburger_lines"
-                style="transform: matrix(1, 0, 0, 1, 0, 0)"
-              ></div>
-              <div
-                class="line_2 hamburger_lines"
-                style="visibility: inherit; opacity: 1"
-              ></div>
-              <div
-                class="line_3 hamburger_lines"
-                style="transform: matrix(1, 0, 0, 1, 0, 0)"
-              ></div>
+              <div class="line_1 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0)"></div>
+              <div class="line_2 hamburger_lines" style="visibility: inherit; opacity: 1"></div>
+              <div class="line_3 hamburger_lines" style="transform: matrix(1, 0, 0, 1, 0, 0)"></div>
             </div>
           </div>
         </div>
@@ -78,9 +51,7 @@
     <!-- Menu -->
 
     <div class="menu trans_800">
-      <div
-        class="menu_content d-flex flex-column align-items-center justify-content-center text-center"
-      >
+      <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
         <ul>
           <li><a href="/admin">home</a></li>
           <li><a href="/addmenu">menu</a></li>
@@ -95,75 +66,64 @@
 
     <!-- Home -->
     <div class="home">
-      <div
-        class="parallax_background parallax-window"
-        data-parallax="scroll"
-        data-image-src="images/contact.jpg"
-        data-speed="0.8"
-      ></div>
+      <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/menu.jpg"
+        data-speed="0.8"></div>
       <div class="home_container">
         <div class="container">
           <div class="row">
             <div class="col">
               <div class="home_content text-center">
                 <div class="home_subtitle page_subtitle">Wikusama Cafe</div>
-                <div class="home_title"><h1>Manage Menu</h1></div>
-                <table class="table table-transparent">
-                  <thead>
-                    <tr class="table-secondary text-dark">
-                      <th>No</th>
-                      <th>Menu</th>
-                      <th>Jenis</th>
-                      <th>Deskripsi</th>
-                      <th>Foto</th>
-                      <th>Harga</th>
-                      <th>Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr
-                      class="text-light"
-                      v-for="(menu, nomor) in datamenu"
-                      :key="nomor"
-                    >
-                      <td>{{ nomor + 1 }}</td>
-                      <td>{{ menu.nama_menu }}</td>
-                      <td>{{ menu.jenis }}</td>
-                      <td>{{ menu.deskripsi }}</td>
-                      <td>
-                        <img
-                          width="200"
-                          :src="
-                            'http://localhost/api_cafe/public/images/' +
-                            menu.foto
-                          "
-                          alt=""
-                        />
-                      </td>
-                      <td>{{ menu.harga }}</td>
-                      <!-- <td>{{ menu.jumlah_pesan }}</td> -->
-                      <td>
-                        <button
-                          type="button"
-                          class="btn btn-info"
-                          data-bs-toggle="modal"
-                          data-bs-target="#editmenu"
-                          @click="getdetail(menu)"
-                        >
-                          Ubah
-                        </button>
-                        I
-                        <button
-                          type="button"
-                          class="btn btn-danger btn btn-ouline"
-                          @click="deletemenu(menu)"
-                        >
-                          Hapus
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="home_title">
+                  <h1>Manage Menu</h1>
+                </div>
+                <div>
+                  <button type="button" class="btn btn-outline-light mt-2" data-bs-toggle="modal"
+                    data-bs-target="#addmenu">
+                    Add Menu
+                  </button>
+                </div>
+                <div><br></div>
+                <div class="table-responsive table-container" style="overflow: auto;">
+                  <table class="table table-transparent">
+                    <thead>
+                      <tr class="table-secondary text-dark">
+                        <th>No</th>
+                        <th>Menu</th>
+                        <th>Jenis</th>
+                        <th>Deskripsi</th>
+                        <th>Foto</th>
+                        <th>Harga</th>
+                        <th>Aksi</th>
+                      </tr>
+                    </thead>
+                  </table>
+                  <table class="table table-transparent">
+                    <tbody style="max-height: 320px; overflow-y: auto;">
+                      <tr class="text-light" v-for="(menu, nomor) in datamenu" :key="nomor">
+                        <td>{{ nomor + 1 }}</td>
+                        <td>{{ menu.nama_menu }}</td>
+                        <td>{{ menu.jenis }}</td>
+                        <td>{{ menu.deskripsi }}</td>
+                        <td>
+                          <img :src="'http://localhost/api_cafe/public/images/' + menu.foto" alt="" width="180"
+                            height="140" />
+                        </td>
+                        <td>{{ menu.harga }}</td>
+                        <td>
+                          <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#editmenu"
+                            @click="getdetail(menu)">
+                            Ubah
+                          </button>
+                          I
+                          <button type="button" class="btn btn-danger btn btn-ouline" @click="deletemenu(menu)">
+                            Hapus
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
@@ -171,33 +131,18 @@
       </div>
     </div>
     <!-- add -->
-    <div
-      class="modal fade"
-      id="addmenu"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="addmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
           <form @submit.prevent="Upload">
             <div class="modal-body">
               <label for="nama">Nama Menu</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="menu.nama_menu"
-              />
+              <input type="text" class="form-control" v-model="menu.nama_menu" />
 
               <label for="jenis">Jenis:</label>
               <select class="form-control" v-model="menu.jenis">
@@ -206,30 +151,16 @@
               </select>
 
               <label for="deskripsi">Deskripsi</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="menu.deskripsi"
-              />
+              <input type="text" class="form-control" v-model="menu.deskripsi" />
 
               <label for="harga">Harga</label>
               <input type="number" class="form-control" v-model="menu.harga" />
 
               <label for="formFileSm" class="form-label">Upload Foto</label>
-              <input
-                class="form-control form-control-sm"
-                id="foto"
-                type="file"
-                @change="UploadFoto($event)"
-                required
-              />
+              <input class="form-control form-control-sm" id="foto" type="file" @change="UploadFoto($event)" required />
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                 Close
               </button>
               <button type="submit" class="btn btn-primary">
@@ -240,85 +171,41 @@
         </div>
       </div>
     </div>
-    <!-- end -->
+    <!-- end add -->
 
     <!-- edit -->
-    <div
-      class="modal fade"
-      id="editmenu"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="editmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
           <form @submit.prevent="editmenu">
             <div class="modal-body">
               <label for="nama_menu">Nama :</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="detailmenu.nama_menu"
-                required
-                autocomplete="off"
-              />
+              <input type="text" class="form-control" v-model="detailmenu.nama_menu" required autocomplete="off" />
 
               <label for="jenis">jenis :</label>
-              <select
-                class="form-control"
-                v-model="detailmenu.jenis"
-                required
-                id="jenis"
-              >
+              <select class="form-control" v-model="detailmenu.jenis" required id="jenis">
                 <option value="makanan">Makanan</option>
                 <option value="minuman">Minuman</option>
               </select>
 
               <label for="deskripsi">Deskripsi:</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="detailmenu.deskripsi"
-                required
-              />
+              <input type="text" class="form-control" v-model="detailmenu.deskripsi" required />
 
               <label for="harga">Harga:</label>
-              <input
-                type="number"
-                class="form-control"
-                v-model="detailmenu.harga"
-                required
-              />
+              <input type="number" class="form-control" v-model="detailmenu.harga" required />
               <label for="foto">foto:</label> <br />
-              <img
-                width="200"
-                :src="'http://localhost/api_cafe/public/images/' + this.foto"
-              />
+              <img width="200" :src="'http://localhost/api_cafe/public/images/' + this.foto" />
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                 Close
               </button>
-              <button
-                type="button"
-                class="btn btn-warning"
-                data-bs-toggle="modal"
-                data-bs-target="#editfoto"
-              >
+              <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editfoto">
                 Update Photo
               </button>
               <button type="submit" class="btn btn-primary">
@@ -329,44 +216,22 @@
         </div>
       </div>
     </div>
-    <!-- edit -->
+    <!-- end edit -->
 
     <!-- EDIT FOTO -->
-    <div
-      class="modal fade"
-      id="editfoto"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="editfoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="exampleModalLabel">UPDATE FOTO</h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <form @submit.prevent="savefoto">
             <div class="modal-body">
-              <input
-                type="file"
-                class="form-control"
-                @change="updatefoto($event)"
-                id="foto"
-                required
-              />
+              <input type="file" class="form-control" @change="updatefoto($event)" id="foto" required />
             </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-secondary"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              >
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">
                 Close
               </button>
               <button type="submit" class="btn btn-primary">
@@ -383,6 +248,8 @@
 
 <script>
 import axios from "axios";
+import swal from "sweetalert";
+
 
 export default {
   data() {
@@ -456,11 +323,11 @@ export default {
         })
         .catch((error) => {
           console.error(error);
-          alert("Gagal edit"); 
+          alert("Gagal edit");
         });
     },
 
-      
+
 
     updatefoto(e) {
       this.foto = e.target.files[0];
@@ -494,6 +361,36 @@ export default {
           }, 1200);
         });
     },
+    logout() {
+      swal({
+        icon: "warning",
+        title: "Ingin Log Out?",
+        dangerMode: true,
+        buttons: true,
+      }).then((response) => {
+        if (response) {
+          localStorage.removeItem("role");
+          localStorage.removeItem("token");
+          localStorage.removeItem("nama");
+          localStorage.removeItem("id_user");
+          swal({
+            icon: "success",
+            button: false,
+          });
+          setTimeout(() => {
+            location.href = "/";
+          }, 1200);
+        }
+      });
+    },
   },
 };
 </script>
+
+<style>
+.table-responsive.table-container {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+</style>
