@@ -85,7 +85,7 @@
                 </div>
                 <div><br></div>
                 <div class="table-responsive table-container" style="overflow: auto;">
-                  <table class="table table-transparent">
+                  <table class="table table-transparent" >
                     <thead>
                       <tr class="table-secondary text-dark">
                         <th>No</th>
@@ -97,8 +97,6 @@
                         <th>Aksi</th>
                       </tr>
                     </thead>
-                  </table>
-                  <table class="table table-transparent">
                     <tbody style="max-height: 320px; overflow-y: auto;">
                       <tr class="text-light" v-for="(menu, nomor) in datamenu" :key="nomor">
                         <td>{{ nomor + 1 }}</td>
@@ -106,8 +104,8 @@
                         <td>{{ menu.jenis }}</td>
                         <td>{{ menu.deskripsi }}</td>
                         <td>
-                          <img :src="'http://localhost/api_cafe/public/images/' + menu.foto" alt="" width="180"
-                            height="140" />
+                          <img :src="'http://localhost/api_cafe/public/images/' + menu.foto" width="180"
+                            height="160" />
                         </td>
                         <td>{{ menu.harga }}</td>
                         <td>
