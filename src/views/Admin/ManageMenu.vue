@@ -387,7 +387,7 @@ export default {
 
 <style>
 .table-responsive.table-container {
-  max-height: 320px;
+  max-height: 300px;
   overflow-y: auto;
 }
 

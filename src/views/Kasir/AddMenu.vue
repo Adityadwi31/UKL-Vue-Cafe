@@ -79,7 +79,7 @@
                 </div>
               </div>
               <input type="text" class="form-control mb-4" v-model="carimenu" placeholder="Search menu..." />
-              <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+              <!-- <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="row g-4 mb-5" v-for="menu in filter_menu" :key="menu.id_menu">
                   <div class="col-lg-6">
                     <div class="d-flex align-items-center">
@@ -95,12 +95,39 @@
 
                           <span class="text-light">Rp.{{ menu.harga }}</span>
                         </h5>
-                        <small class="fst-italic text-light">Ipsum ipsum clita erat amet dolor justo diam</small>
+                        <small class="fst-italic text-light">{{ menu.jenis }} , {{ menu.deskripsi }} </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="cart-menu">
+                <div class="container">
+                  <div class="row g-4 mb-5" v-for="menu in filter_menu" :key="menu.id_menu">
+                    <div class="col-12"> <!-- Menggunakan col-12 agar kontennya penuh -->
+                      <div class="d-flex align-items-center">
+                        <img class="flex-shrink-0 img-fluid rounded"
+                          :src="'http://localhost/api_cafe/public/images/' + menu.foto" alt="" style="width: 80px" />
+                        <div class="w-100 d-flex flex-column text-start ps-4">
+                          <h5 class="d-flex justify-content-between border-bottom pb-2">
+                            <span style="color: white" class="ai-font-bold">{{ menu.nama_menu }}
+                              <button class="btn btn-outline-primary text" data-bs-toggle="modal" @click="getdetail(menu)"
+                                data-bs-target="#addmenu">
+                                <i class="bi bi-cart-plus-fill">pesan</i>
+                              </button></span>
+
+                            <span class="text-light">Rp.{{ menu.harga }}</span>
+                          </h5>
+                          <small class="fst-italic text-light">{{ menu.jenis }} , {{ menu.deskripsi }} </small>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+
             </div>
           </div>
         </div>
@@ -235,3 +262,10 @@ export default {
   },
 };
 </script>
+
+<style>
+.cart-menu {
+  max-height: 300px;
+  overflow-y: auto;
+}
+</style>
