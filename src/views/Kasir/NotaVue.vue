@@ -5,7 +5,7 @@
         <h1>Cafe Bill</h1>
       </div>
       <div class="bill-info">
-        <p><strong>Date/Time:</strong> {{ formattedDateTime  }}</p>
+        <p><strong>Date/Time:</strong> {{ formattedDateTime }} WIB</p>
         <p><strong>CashierS:</strong> {{ kasir }} </p>
       </div>
       <div class="bill-items">
